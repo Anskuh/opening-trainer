@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Openings">
+  <meta name="theme-color" content="#111317">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <title>Opening Trainer</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/chessground.base.css">
+  <link rel="stylesheet" href="vendor/chessground.brown.css">
+  <link rel="stylesheet" href="vendor/chessground.cburnett.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/"><img src="icon.svg" alt="">Opening Trainer</a>
+    <nav id="nav">
+      <a href="#/" data-route="home">Home</a>
+      <a href="#/library" data-route="library">Library</a>
+      <a href="#/train" data-route="train">Train <span class="badge" id="due-badge" hidden></span></a>
+      <a href="#/stats" data-route="stats">Stats</a>
+      <a href="#/notes" data-route="notes">Notes</a>
+      <a href="#/settings" data-route="settings">Settings</a>
+    </nav>
+    <span class="save-state" id="save-state"></span>
+  </header>
+  <main id="view"><div class="loading">Loading…</div></main>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
