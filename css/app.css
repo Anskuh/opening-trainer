@@ -458,6 +458,9 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
   #nav .badge { position: absolute; top: 3px; right: 2px; font-size: 10px; line-height: 15px; min-width: 15px; padding: 0 4px; }
   body { padding-top: env(safe-area-inset-top); }
 
+  /* board lower on the screen: clear of the top edge and easier to reach with your thumb */
+  .view-train, .view-study { padding-top: max(28px, 8vh); }
+
   /* board edge to edge, everything else below it */
   .board-layout { display: flex; flex-direction: column; gap: 10px; }
   .board-col, .side-col { width: 100%; min-width: 0; max-height: none; }

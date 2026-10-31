@@ -412,7 +412,8 @@ async function runSession(root, mode, query) {
       drawLineMoves(line, i, missed);
       if (!userIdx.has(i)) {
         // opponent (or passed-through) move
-        await sleep(i === start ? 350 : settings.autoplayDelay);
+        // after going back to a branch, a moment to see where the board is before the new move
+        await sleep(i === start && line.continuation ? 350 : settings.autoplayDelay);
         if (cancelled) return null;
         board.set(node.fen, { lastMove: node.from ? [node.from, node.to] : undefined, shapes: showCommentsNow ? nodeShapes(node) : [] });
         sound.move(node.san);

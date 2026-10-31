@@ -11,7 +11,7 @@ export const DEFAULT_SETTINGS = {
   boardTheme: 'brown',
   sound: true,
   slowSeconds: 20, // a correct move slower than this counts as "Hard"
-  autoplayDelay: 450, // ms before the opponent replies
+  autoplayDelay: 150, // ms before the opponent replies
   mistakesBeforeAnswer: 2,
   showCommentsInDrill: true,
   showNotesInDrill: true,
@@ -85,6 +85,14 @@ export async function loadUserData() {
   if (data.settingsVersion < 4) {
     if (JSON.stringify(data.settings.learnStages) === '[6,10,15]') data.settings.learnStages = [10];
     data.settingsVersion = 4;
+  }
+  // v5: the opponent replies faster (stamped, or a sync would bring the old value back)
+  if (data.settingsVersion < 5) {
+    if (data.settings.autoplayDelay === 450) {
+      data.settings.autoplayDelay = DEFAULT_SETTINGS.autoplayDelay;
+      stamp('settings');
+    }
+    data.settingsVersion = 5;
   }
 }
 
